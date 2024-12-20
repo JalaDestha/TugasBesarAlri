@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Illness Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #89f7fe, #66a6ff);
+            color: #333;
+        }
+        header {
+            background-color: #71f7d6;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 1.5em;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 1200px;
+        }
+        .card {
+            flex: 1 1 calc(30% - 20px);
+            background: #f7f9fc;
+            margin: 10px;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            transition: transform 0.2s;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .card img {
+            width: 100%;
+            max-width: 150px;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        .card h3 {
+            margin-top: 10px;
+            color: #4ae2b7;
+        }
+        .card p {
+            margin: 5px 0;
+            line-height: 1.5;
+        }
+        footer {
+            background-color: #4A90E2;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+        @media (max-width: 768px) {
+            .card {
+                flex: 1 1 calc(45% - 20px);
+            }
+        }
+        @media (max-width: 480px) {
+            .card {
+                flex: 1 1 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        Mental Illnesses: Causes and Solutions
+    </header>
+    <div class="container" id="illness-list">
+        <!-- Cards will be inserted here by JavaScript -->
+    </div>
+    <footer>
+        &copy; 2024 ABHealth
+    </footer>
+    <script>
+        const illnesses = [
+            {
+                name: "Depression",
+                cause: "Biological, psychological, and environmental factors.",
+                solution: "Therapy, medications, and lifestyle changes.",
+                image: "depression.jpg"
+            },
+            {
+                name: "Anxiety",
+                cause: "Stress, genetics, and trauma.",
+                solution: "Cognitive Behavioral Therapy (CBT) and relaxation techniques.",
+                image: "anxiety.jpg"
+            },
+            {
+                name: "Bipolar Disorder",
+                cause: "Genetics, brain structure, and chemistry.",
+                solution: "Mood stabilizers and psychotherapy.",
+                image: "bipolar.jpg"
+            },
+            {
+                name: "Schizophrenia",
+                cause: "Genetic predisposition and brain chemistry.",
+                solution: "Antipsychotic medications and support groups.",
+                image: "schizophrenia.jpg"
+            },
+            {
+                name: "Obsessive-Compulsive Disorder (OCD)",
+                cause: "Brain abnormalities and genetic factors.",
+                solution: "Exposure therapy and medications.",
+                image: "ocd.jpeg"
+            },
+            {
+                name: "Post-Traumatic Stress Disorder (PTSD)",
+                cause: "Trauma and life-threatening experiences.",
+                solution: "Trauma-focused therapy and medications.",
+                image: "ptsd.jpg"
+            },
+            {
+                name: "Eating Disorders",
+                cause: "Cultural pressures and psychological issues.",
+                solution: "Therapy and nutritional counseling.",
+                image: "eatingdisorder.jpg"
+            },
+            {
+                name: "Attention Deficit Hyperactivity Disorder (ADHD)",
+                cause: "Brain development and genetic factors.",
+                solution: "Behavioral therapy and medication.",
+                image: "adhd.jpg"
+            },
+            {
+                name: "Panic Disorder",
+                cause: "Stress and genetic predisposition.",
+                solution: "Therapy and relaxation techniques.",
+                image: "oanicdisorder.jpg"
+            },
+            {
+                name: "Borderline Personality Disorder (BPD)",
+                cause: "Trauma and genetic predisposition.",
+                solution: "Dialectical Behavior Therapy (DBT) and medications.",
+                image: "bpd.jpg"
+            }
+        ];
+
+        const illnessList = document.getElementById("illness-list");
+
+        illnesses.forEach(illness => {
+            const card = document.createElement("div");
+            card.classList.add("card");
+
+            card.innerHTML = `
+                <img src="${illness.image}" alt="${illness.name}">
+                <h3>${illness.name}</h3>
+                <p><strong>Cause:</strong> ${illness.cause}</p>
+                <p><strong>Solution:</strong> ${illness.solution}</p>
+            `;
+
+            illnessList.appendChild(card);
+        });
+    </script>
+</body>
+</html>
